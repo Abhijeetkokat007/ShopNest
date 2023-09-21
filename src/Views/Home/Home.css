@@ -1,0 +1,123 @@
+
+body{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    
+    background-color: #f9e8e3;
+    
+  
+    padding-top: 0;
+    margin-top: 0; 
+}
+.navbar-card{
+    color: #f55c34;
+    background-color: white;
+    box-shadow: 0 2px 30px 0 rgb(89, 89, 89);
+    padding: 10px; 
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+.card-nav{
+    text-align: end;
+    margin-left: 100px;
+    color: black;
+    cursor: pointer;
+    padding: 5px;
+}
+.card-nav:hover{
+    color: #f55c34;
+    border-bottom: 3px solid #f55c34;
+}
+.margin-start{
+    margin-left: 200px;
+}
+.app-name{
+    text-align:justify;
+    /* background-color: #f55c34; */
+    /* border: 1px solid black; */
+    display: block;
+    /* width: 380px; */
+    /* margin: 10px auto; */
+    border-radius: 5px;
+
+}
+.app-flex{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.text-center{
+    text-align: center;
+}
+.input{
+    width: 250px;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 2px solid #f55c34;
+
+}
+.btn{
+    background: #f55c34;
+    border: 2px solid #f55c34;
+    cursor: pointer;
+    color: white;
+    
+}
+.btn:hover{
+    background-color: whitesmoke;
+    color: #f55c34;
+}
+.push-card{
+    /* border: 1px solid black; */
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 10px;
+    box-shadow: 0 2px 40px 0 rgb(152, 152, 152);
+    align-items: center;
+    background-color: white;
+    margin-bottom: 100px;
+
+}
+
+.footer{
+    height: 100px;
+    margin-bottom: 0px;
+    margin-top: 50px;
+    text-align: center;
+    background-color: rgb(57, 1, 1);
+}
+.foot-card{
+    display: inline-block;
+   text-align: center;
+    color: white;
+    margin: 50px auto;
+   
+    
+   
+    
+}
+
+
+
+  @media screen and (max-width: 820px) and (min-width: 300px) {
+    .navbar-card{
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+
+    }
+    .card-nav{
+        /* text-align: end; */
+        margin-left: 10px;
+        color: black;
+        cursor: pointer;
+        padding: 5px;
+    }
+    
+  }

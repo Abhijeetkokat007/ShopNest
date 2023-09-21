@@ -1,0 +1,46 @@
+.task-container{
+    max-width: 300px;
+    background-color: white;
+    margin:20px 10px;
+    padding:10px 60px;
+    border-radius: 10px;
+    border: 1px solid rgb(207, 57, 57);
+    position: relative;
+    box-shadow:  0 0.5px 20px 0 rgb(201, 199, 199);
+}
+.task-title{
+    margin: 0;
+}
+ .task-description{
+    margin: 0;
+ }
+ .task-priority{
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top:0;
+    background-color: rgb(254, 230, 152);
+    border-radius:0   10px 0 0;
+    padding: 3px;
+    width: 70px;
+    text-align: center;
+ }
+ .btn-card{
+    padding: 5px;
+    width: 100px;
+    margin: 10px 5px;
+    background-color: #f55c34;
+    border: 2px solid #f55c34;
+    border-radius: 5px;
+    color: white;
+ }
+ .card-delet{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+ }
+ .btn-card:hover{
+   background-color: white;
+   color: #f55c34;
+ }

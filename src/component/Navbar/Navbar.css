@@ -1,0 +1,33 @@
+.nav{
+
+    background-color: bisque;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+.active{
+    background-color: aquamarine;
+    /* padding: 2px; */
+    border-radius: 10px;
+    border: 1px so
+    lid black;
+}
+.search{
+    height: 40px;
+    width: 20%;
+    border: 2px solid tomato;
+    border-radius: 30px;
+    padding-left: 20px;
+}
+.name{
+    font-weight: bold;
+    font-size: 30px;
+    text-decoration: none;
+    border: none;
+    color: tomato;
+}
+.name-1{
+    font-size: 50px;
+    font-weight: bold;
+}
