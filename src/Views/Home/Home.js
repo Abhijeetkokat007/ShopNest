@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Task from "../../component/Task/Task";
 import showToast from 'crunchy-toast';
+import { saveListToLocalStorage } from "../../Util/LocalStorage";
 import "./Home.css";
 
 const Home = () => {
@@ -48,9 +49,9 @@ const Home = () => {
         }
     }, []);
 
-    const saveListToLocalStorage = (tasks) => {
-        localStorage.setItem("mahamart", JSON.stringify(tasks));
-    };
+    // const saveListToLocalStorage = (tasks) => {
+    //     localStorage.setItem("mahamart", JSON.stringify(tasks));
+    // };
 
     const clearInputFields = () =>{
         setTitle(' ');
@@ -58,13 +59,48 @@ const Home = () => {
         setPriority(' ');
     }
 
+    const findTaskndexById = (taskId) =>{
+        let index;
+        card.forEach((task, i) => {
+            if (task.id === taskId) {
+                index = i
+            }
+        })
+      return index;
+    }
+  
+
+    const checkRequiredFields = () => {
+        if(!title){
+          showToast('Title is required!', 'alert', 3000);
+          return false;
+        }
+    
+        if(!description){
+          showToast('Description is required!', 'alert', 3000);
+          return false;
+        }
+    
+        if(!priority){
+          showToast('Priority is required!', 'alert', 3000);
+          return false;
+        }
+    
+        return true;
+      }
+    
+
     const addTaskTolist = () => {
+
+        if(checkRequiredFields() === false){
+           return;
+    }
         const randomId = Math.floor(Math.random() * 500);
         const obj = {
             id: randomId,
             title: title,
             description: description,
-            priority: priority,
+            priority: priority
         };
 
         const newCard = [...card, obj];
@@ -76,7 +112,7 @@ const Home = () => {
         clearInputFields()
 
         saveListToLocalStorage(newCard);
-        showToast('This is a sample toast message', 'success', 3000);
+        showToast('Task added successfully!', 'success', 3000);
 
         // 
         
@@ -92,18 +128,23 @@ const Home = () => {
         setcard([...tempArray]);
 
         saveListToLocalStorage(tempArray);
+        showToast('Task deledet successfully!', 'alert', 3000);
     };
 
     const setTaskEditable = (id) => {
         setIsEdit(true);
         setId(id);
-        let currentEditTask;
+        // let currentEditTask;
 
-        card.forEach((task) => {
-            if (task.id === id) {
-                currentEditTask = task;
-            }
-        })
+        // card.forEach((task) => {
+        //     if (task.id === id) {
+        //         currentEditTask = task;
+        //     }
+        // })
+       
+        const index = findTaskndexById(id);
+        const currentEditTask = card[index];
+
        setTitle(currentEditTask.title);
        setDescription(currentEditTask.description);
        setPriority(currentEditTask.priority);
@@ -116,6 +157,7 @@ const Home = () => {
        card.forEach((task, i) =>{
           if (task.id === id) {
             indexToUpdate = i;
+
           }
        })
 
@@ -130,11 +172,12 @@ const Home = () => {
        setcard([...tempArray])
        saveListToLocalStorage(tempArray);
        setId(0);
-    //    setTitle('');
-    //    setDescription('');
-    //    setPriority('');
-
+       setTitle('');
+       setDescription('');
+       setPriority('');
+       
        setIsEdit(false);
+       showToast('Task updated successfully!', 'info', 3000);
     }
 
     return (
@@ -146,9 +189,7 @@ const Home = () => {
                 </h1>
 
                 <p className="card-nav margin-start">HOME</p>
-                {/* <Link to="./" className=" card-nav margin-start">HOME</Link> */}
-                {/* <Link to="./" className=" card-nav ">ABOUT</Link>
-                <Link to="./" className=" card-nav ">CONTACT</Link> */}
+               
                 <p className="card-nav">ABOUT</p> 
                 <p className="card-nav">CONTACT</p> 
             </div>
@@ -213,7 +254,7 @@ const Home = () => {
                                 }}
                             />
                             <br></br>
-                            <div className="d-flex">
+                            {/* <div className="d-flex">
                                 {isEdit ? (
                                     <button
                                         type="button"
@@ -231,13 +272,25 @@ const Home = () => {
                                         Creat
                                     </button>
                                 )}
+                            </div> */}
+
+                            <div className="d-flex">
+                            <button
+                                        type="button"
+                                        className=" input btn"
+                                        onClick={()=>{
+                                            isEdit ? updateTask() : addTaskTolist()
+                                        }}
+                                    >
+                                        {isEdit ? 'Update' :'Creat'}
+                                    </button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
             <div className="footer">
-                <h4 className="foot-card">copywrite@ AbhijeetKokat007 </h4>
+                <h4 className="foot-card">copywrite@ AbhijeetKokat007</h4>
             </div>
         </div>
     );
