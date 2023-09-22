@@ -66,6 +66,10 @@ body{
     border: 2px solid #f55c34;
     cursor: pointer;
     color: white;
+    /* margin: 5px 10px;
+    padding: 5px 10px;
+    border-radius: ; */
+    width: 118px;
     
 }
 .btn:hover{
@@ -101,6 +105,11 @@ body{
    
     
 }
+.d-flex{
+    display: block;
+    text-align: center;
+}
+
 
 
 

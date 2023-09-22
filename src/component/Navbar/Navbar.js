@@ -10,6 +10,8 @@ export default function Navbar() {
       <Link to="./" className="name">Contact</Link>
       <input type="search" className="search" placeholder="search"></input>
     </div>
+
+
   );
 }
 

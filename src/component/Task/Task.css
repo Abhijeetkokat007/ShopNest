@@ -2,8 +2,9 @@
     max-width: 300px;
     background-color: white;
     margin:20px 10px;
-    padding:10px 60px;
+    padding:10px 30px;
     border-radius: 10px;
+    width: 500px;
     border: 1px solid rgb(207, 57, 57);
     position: relative;
     box-shadow:  0 0.5px 20px 0 rgb(201, 199, 199);
@@ -43,4 +44,10 @@
  .btn-card:hover{
    background-color: white;
    color: #f55c34;
+ }
+ .card-edit-icon{
+   position: absolute;
+   bottom: 5px;
+    right: 40px;
+    cursor: pointer;
  }
