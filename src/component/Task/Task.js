@@ -11,7 +11,7 @@ const Task = ({id, title,description,priority, removeTaskfromList, obj, setTaskE
             alert("Added cart succesfully")
             ;
            }}>Add to Cart</button>
-           <button className="btn-card"> Buy Now</button>
+           <button className="btn-card" > Buy Now</button>
            <span className="card-delet"
            onClick={()=>{ 
             

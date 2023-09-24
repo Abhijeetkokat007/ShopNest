@@ -34,6 +34,7 @@
     border: 2px solid #f55c34;
     border-radius: 5px;
     color: white;
+    cursor: pointer;
  }
  .card-delet{
     position: absolute;

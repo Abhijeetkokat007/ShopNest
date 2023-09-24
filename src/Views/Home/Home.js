@@ -9,28 +9,28 @@ const Home = () => {
   const [card, setcard] = useState([
     {
       id: 1,
-      title: "Fan",
-      description: "this product is very good",
+      title: "Boat Airdopes 190",
+      description: "this product is use to easy",
       priority: "NEW",
     },
-    // {
-    //     id:2,
-    //     title:'Books',
-    //     description:'this product is very good',
-    //     priority:'NEW'
-    // },
+    {
+        id:2,
+        title:'Books',
+        description:'Subject Wise Solved Papers',
+        priority:'NEW'
+    },
     // {
     //     id:3,
     //     title:'Cheair',
     //     description:'this product is very good',
     //     priority:'OLD'
     // },
-    // {
-    //     id:4,
-    //     title:'Mobail Phone',
-    //     description:'this product is very good',
-    //     priority:'OLD'
-    // }
+    {
+        id:4,
+        title:'Mobile Phone',
+        description:'LAVA Blase 5G 8GB Ram, 128GB Storage',
+        priority:'OLD'
+    }
   ]);
   const [id, setId] = useState(0);
   const [title, setTitle] = useState("");
@@ -42,12 +42,11 @@ const Home = () => {
   //     const list = JSON.parse(localStorage.getItem('mahamart'))
   // }
   useEffect(() => {
-    const list = JSON.parse(localStorage.getItem('mahamart'));
-    
+    const list = JSON.parse(localStorage.getItem("mahamart"));
+
     if (list && list.length >= 0) {
       setcard(list);
     }
-
   }, []);
 
   // const saveListToLocalStorage = (tasks) => {
@@ -58,17 +57,17 @@ const Home = () => {
     setTitle("");
     setDescription("");
     setPriority("");
-  }
+  };
 
   const findTaskndexById = (taskId) => {
     let index;
     card.forEach((task, i) => {
       if (task.id === taskId) {
-        index = i
+        index = i;
       }
-    })
+    });
     return index;
-  }
+  };
 
   const checkRequiredFields = () => {
     if (!title) {
@@ -111,9 +110,7 @@ const Home = () => {
 
     saveListToLocalStorage(newCard);
     showToast("Task added successfully!", "success", 3000);
-
-    
-  }
+  };
 
   // delet
   const removeTaskfromList = (obj) => {
@@ -146,7 +143,7 @@ const Home = () => {
     setDescription(currentEditTask.description);
     setPriority(currentEditTask.priority);
     //    setTitle(currentEditTask.title);
-  }
+  };
 
   const updateTask = () => {
     let indexToUpdate;
@@ -154,7 +151,7 @@ const Home = () => {
       if (task.id === id) {
         indexToUpdate = i;
       }
-    })
+    });
 
     // if(checkRequiredFields() === false){
     //   return;
@@ -183,7 +180,7 @@ const Home = () => {
     <div className="container">
       <div className="navbar-card">
         <h1 className="app-name">
-          {" "}
+          {""}
           ShopNest <i class="fa-solid fa-cart-shopping "></i>
         </h1>
 
@@ -196,28 +193,30 @@ const Home = () => {
       <div className="app-flex">
         <div>
           <h3 className="text-center">Slow Product List</h3>
-          {card.map((card, index) => {
-            const { id, title, description, priority } = card;
+          <div className="tasks-container">
+            {card.map((card, index) => {
+              const { id, title, description, priority } = card;
 
-            return (
-              <Task
-                id={id}
-                title={title}
-                description={description}
-                priority={priority}
-                key={index}
-                removeTaskfromList={removeTaskfromList}
-                obj={card}
-                setTaskEditable={setTaskEditable}
-              />
-            );
-          })}
+              return (
+                <Task
+                  id={id}
+                  title={title}
+                  description={description}
+                  priority={priority}
+                  key={index}
+                  removeTaskfromList={removeTaskfromList}
+                  obj={card}
+                  setTaskEditable={setTaskEditable}
+                />
+              );
+            })}
+          </div>
         </div>
 
         <div>
           <div className="push-card">
             <h3 className="text-center">
-              {isEdit ? `Update task ${id}` : `Add Task`}
+              {isEdit ? `Update task ${id} 🖊️` : `Add Task +`}
             </h3>
             <div className="add-task-from-container">
               {/* <h3>show me title: {title} </h3> */}
@@ -288,7 +287,12 @@ const Home = () => {
         </div>
       </div>
       <div className="footer">
-        <h4 className="foot-card">Devlope By <a className="git-footer" href="https://github.com/Abhijeetkokat007 ">@abhijeetkokat007<i class="fa-brands fa-github"></i></a> </h4>
+        <h4 className="foot-card">
+          Devlope By{" "}
+          <a className="git-footer" href="https://github.com/Abhijeetkokat007 ">
+            @abhijeetkokat007<i class="fa-brands fa-github"></i>
+          </a>{" "}
+        </h4>
       </div>
     </div>
   );
