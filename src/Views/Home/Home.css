@@ -109,7 +109,14 @@ body{
     display: block;
     text-align: center;
 }
-
+.git-footer{
+    text-decoration: none;
+    color: #f7f6f5;
+}
+.git-footer:hover{
+    color: #f55c34;
+    
+}
 
 
 
@@ -118,7 +125,7 @@ body{
         display: flex;
         flex-direction: column;
         justify-content: start;
-        align-items: start;
+        /* align-items: start; */
 
     }
     .card-nav{

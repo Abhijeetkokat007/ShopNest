@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
 import Task from "../../component/Task/Task";
 import showToast from "crunchy-toast";
 import { saveListToLocalStorage } from "../../Util/LocalStorage";
@@ -43,10 +42,12 @@ const Home = () => {
   //     const list = JSON.parse(localStorage.getItem('mahamart'))
   // }
   useEffect(() => {
-    const list = JSON.parse(localStorage.getItem("mahamart"));
-    setcard(list);
+    const list = JSON.parse(localStorage.getItem('mahamart'));
+    
     if (list && list.length >= 0) {
+      setcard(list);
     }
+
   }, []);
 
   // const saveListToLocalStorage = (tasks) => {
@@ -54,20 +55,20 @@ const Home = () => {
   // };
 
   const clearInputFields = () => {
-    setTitle(" ");
+    setTitle("");
     setDescription("");
-    setPriority(" ");
-  };
+    setPriority("");
+  }
 
   const findTaskndexById = (taskId) => {
     let index;
     card.forEach((task, i) => {
       if (task.id === taskId) {
-        index = i;
+        index = i
       }
-    });
+    })
     return index;
-  };
+  }
 
   const checkRequiredFields = () => {
     if (!title) {
@@ -111,8 +112,8 @@ const Home = () => {
     saveListToLocalStorage(newCard);
     showToast("Task added successfully!", "success", 3000);
 
-    //
-  };
+    
+  }
 
   // delet
   const removeTaskfromList = (obj) => {
@@ -145,7 +146,7 @@ const Home = () => {
     setDescription(currentEditTask.description);
     setPriority(currentEditTask.priority);
     //    setTitle(currentEditTask.title);
-  };
+  }
 
   const updateTask = () => {
     let indexToUpdate;
@@ -153,8 +154,12 @@ const Home = () => {
       if (task.id === id) {
         indexToUpdate = i;
       }
-    });
+    })
 
+    // if(checkRequiredFields() === false){
+    //   return;
+    // }
+    // const indexToUpdate = findTaskndexById(id);
     const tempArray = card;
     tempArray[indexToUpdate] = {
       id: id,
@@ -179,7 +184,7 @@ const Home = () => {
       <div className="navbar-card">
         <h1 className="app-name">
           {" "}
-          BigMart <i class="fa-solid fa-cart-shopping "></i>
+          ShopNest <i class="fa-solid fa-cart-shopping "></i>
         </h1>
 
         <p className="card-nav margin-start">HOME</p>
@@ -231,7 +236,7 @@ const Home = () => {
               <input
                 type="text"
                 className="input"
-                placeholder="Enter description"
+                placeholder="enter description"
                 value={description}
                 onChange={(event) => {
                   setDescription(event.target.value);
@@ -241,7 +246,7 @@ const Home = () => {
               <input
                 type="text"
                 className="input"
-                placeholder="Enter priority"
+                placeholder="enter priority"
                 value={priority}
                 onChange={(event) => {
                   setPriority(event.target.value);
@@ -283,7 +288,7 @@ const Home = () => {
         </div>
       </div>
       <div className="footer">
-        <h4 className="foot-card">copywrite@ AbhijeetKokat007</h4>
+        <h4 className="foot-card">Devlope By <a className="git-footer" href="https://github.com/Abhijeetkokat007 ">@abhijeetkokat007<i class="fa-brands fa-github"></i></a> </h4>
       </div>
     </div>
   );
